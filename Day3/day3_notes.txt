@@ -1,0 +1,159 @@
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+print(basket) # show that duplicates have been removed
+
+'orange' in basket       # fast membership testing
+
+'crabgrass' in basket
+
+# Demonstrate set operations on unique letters from two words
+
+a = set('abracadabra')
+b = set('alacazam')
+a                                  # unique letters in a
+
+a - b                              # letters in a but not in b
+
+a | b                              # letters in a or b or both
+
+a & b                              # letters in both a and b
+
+a ^ b                              # letters in a or b but not both
+-----------------------------------------------------
+my_name = list('nithin')
+
+my_name[1::2] = 'OTE'
+print(my_name)
+
+my_name = ''.join(my_name)
+print(my_name)
+---------------------------------------------
+my_list = [2, 3, 5, 7, 11]
+print(my_list)
+
+my_list[0::2] = (e**2 for e in my_list[0::2])
+my_list[1::2] = (e**3 for e in my_list[1::2])
+print(my_list)
+---------------------------------------------
+def my_function(*args):
+    print(args)
+
+my_function()
+my_function(10)
+my_function(1, 2, 5, 7)
+-----------------------------
+my_set = set()
+
+my_set.add('banana')
+my_set.add('lemon')
+my_set.add('apple')
+my_set.add('avacardo')
+
+print(my_set)
+-----------------------------------------
+def my_function(arg1 = 10, arg2 = 20):
+    print(f'Arg1 = {arg1}, Arg2 = {arg2}')
+
+my_function() # Default Arguments
+my_function(19) # Positional Argument
+my_function(arg2 = 40) # Named Argument
+my_function(1, 9) # User defined Arguments
+-----------------------------------------------
+class Employee:
+    def __init__(self, name, designation, salary) -> None:
+        self.name = name
+        self.designation = designation
+        self.salary = salary
+    
+    def __str__(self) -> str:
+        return f'{self.name}, {self.designation}, {self.salary}'
+
+emp1 = Employee('nithin', 'trainer', 125000)
+print(emp1)
+print(print(emp1.designation))
+------------------------------------------
+class Employee:
+    def __init__(self, name, designation, salary) -> None:
+        self.name = name
+        self.designation = designation
+        self.salary = salary
+    
+    def __str__(self) -> str:
+        return f'{self.name}, {self.designation}, {self.salary}'
+
+emp1 = Employee('nithin', 'trainer', 125000)
+print(emp1)
+print(print(emp1.designation))
+------------------------------------------
+def calc(first_num:int, second_num:int) -> int:
+    sum_num = first_num + second_num
+    difference = first_num - second_num
+    product = first_num * second_num
+    quotient = first_num // second_num
+    return sum_num, difference, product, quotient
+
+s, d, p, q = calc(24, 8)
+print(s, d, p, q)
+t1 = calc(35, 7)
+print(t1)
+--------------------------------------------------
+
+words = input('Enter few sweets(space seperated): ').split()
+words_tuple = tuple(words)
+print(f'Words : {words}')
+print(f'Words : {words_tuple}')
+
+with open('sweets.txt', 'w') as sweets_file:
+    sweets_file.write(f'List: {words}\n')
+    sweets_file.write(f'Tuple: {words_tuple}\n')
+print('Data written into the file: ')
+with open('sweets.txt', 'r') as fptr:
+    line_list = fptr.readline()
+    line_tuple = fptr.readline()
+    print(line_list)
+    print(line_tuple)
+-------------------------------------------------
+import json
+
+class Sweet:
+    def __init__(self):
+        self.sweets = []
+
+    def read_sweets(self):
+        self.sweets = input('Enter few sweets(space seperated): ').split()
+
+    def __str__(self):
+        return f'The Tasty Sweets are: {self.sweets}'
+    
+    def write_sweets_to_file(self):
+        with open('sweets1.json', 'w') as fptr:
+            json.dump(self.sweets, fptr)
+        print('List of sweets are written to file')
+
+    def read_sweets_from_file(self):
+        with open('sweets1.json', 'r') as fptr:
+            sweets = json.load(fptr)
+        print(f'JSON read from file is: {sweets}')
+
+sweet_obj = Sweet()
+sweet_obj.read_sweets()
+sweet_obj.write_sweets_to_file()
+sweet_obj.read_sweets_from_file()
+--------------------------------------------------
+my_function = lambda num: num*2
+
+print(my_function(45))
+-----------------------------------------
+from functools import reduce
+
+numbers = [2, 3, 5, 7, 11, 19, 17, 13]
+
+squared_numbers = list(map(lambda num: num**2, numbers))
+
+small_numbers = list(filter(lambda num: num < 10, numbers))
+
+numbers_sum = reduce(lambda s, num: s + num, numbers, 0)
+
+print(f'Squared Numbers = {squared_numbers}')
+print(f'Single Digit Numbers = {small_numbers}')
+print(f'Sum of Numbers = {numbers_sum}')
+------------------------------------------

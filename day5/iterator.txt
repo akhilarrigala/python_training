@@ -1,0 +1,69 @@
+# fib_iter.py
+
+class FibonacciIterator:
+    def __init__(self, stop=10):
+        self.stop = stop
+        self.start = 0
+        self.cur = 0
+        self.next = 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(sel0f):
+        if self.start < self.stop:
+            self.start += 1
+            term = self.cur
+            self.cur, self.next = self.next, (self.cur + self.next)
+            return term
+        else:
+            raise StopIteration
+            
+            
+for term in FibonacciIterator(5):
+    print(term, end = ' ')
+    
+print()
+fi = FibonacciIterator(3)
+print(fi.__next__())
+print(fi.__next__())
+print(fi.__next__())
+#print(fi.__next__())
+
+def fibb_ser(stop=10):
+    cur, next = 0, 1
+    for I in range(stop):
+        term = cur
+        yield term
+        cur, next = next, cur + next
+
+for term in fibb_ser(5):
+    print(term, end = ' ')
+--------------------------------------
+SMTP
+
+#https://stackoverflow.com/questions/72480454/sending-email-with-python-google-disables-less-secure-apps
+
+'''
+To send mail 
+    enable in gmail the 2 step verification 
+Then 
+    use below link to create app password
+    with app password and your mail id try to run the below code
+
+    #https://support.google.com/accounts/answer/185833?hl=en
+'''
+
+
+
+import smtplib as smtp
+
+connection = smtp.SMTP_SSL('smtp.gmail.com', 465)
+    
+email_addr = 'pystud19@gmail.com'
+email_passwd = 'yaxb hoco fihc prnn'
+connection.login(email_addr, email_passwd)
+connection.sendmail(from_addr=email_addr, to_addrs='gmaheswaranmca@gmail.com', msg="Sent from my IDE. Hehe")
+connection.close()
+print('Mail sent successfully')
+
